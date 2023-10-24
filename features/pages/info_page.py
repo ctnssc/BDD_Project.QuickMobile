@@ -13,10 +13,10 @@ class InfoPage(BasePage):
     INFO_PAGE_MESSAGE = 'Modifica datele contului tau'
     FIRSTNAME = 'Cristian'
     LASTNAME = 'TANASESCU'
-    PHONE = '0773973155'
+    PHONE = '0777777777'
     COUNTY = 'Bucuresti'
     CITY = 'Sector 6'
-    ADDRESS = 'Str. Sergent Ion Marcu 14'
+    ADDRESS = 'Adresa de proba 123'
 
     #XPATH
     INFO_PAGE_CLICK = (By.XPATH, '//h3[@class=contains(text(), "Informatii cont")]')
