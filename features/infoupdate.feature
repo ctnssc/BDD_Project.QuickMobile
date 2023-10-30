@@ -1,4 +1,6 @@
 Feature: infoupdate
+
+  @full_update
   Scenario: update personal informations with valid data
     Given I am on the login page
     When I enter a valid email
@@ -67,7 +69,6 @@ Feature: infoupdate
       And I let the "Nume" field empty
       And I press save button "Salveaza"
       Then I shoud see an error message
-
 
 
   @change_email
