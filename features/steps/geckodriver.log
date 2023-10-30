@@ -54,3 +54,17 @@ WebDriver BiDi listening on ws://127.0.0.1:54993
 1697804175975	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 DevTools listening on ws://127.0.0.1:54993/devtools/browser/bc69d340-8df9-4a86-b9ee-8532886ed4c8
 1697804187283	Marionette	INFO	Stopped listening on port 54998
+1698396750977	geckodriver	INFO	Listening on 127.0.0.1:59242
+1698396751516	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/49/2ztl2py11z92w20g23gvxdhc0000gn/T/rust_mozprofilezHMZy2"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+2023-10-27 11:52:31.853 firefox-bin[29468:1709326] WARNING: Secure coding is not enabled for restorable state! Enable secure coding by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState: and returning YES.
+1698396752159	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1698396752334	Marionette	INFO	Listening on port 59248
+Read port: 59248
+WebDriver BiDi listening on ws://127.0.0.1:59243
+1698396752492	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:59243/devtools/browser/959f6a65-abf3-430a-a5bc-152813e22024
+1698396759769	Marionette	INFO	Stopped listening on port 59248
+JavaScript error: resource://gre/modules/UrlClassifierListManager.sys.mjs, line 720: TypeError: this.tablesData[table] is undefined

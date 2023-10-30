@@ -10,6 +10,8 @@
 Pentru rularea testelor:
 Din TERMINAL:  behave sau behave **/features/login.feature ( pentru un proiect mai
 complex specificam direct calea fisierului freature.)
+Cu TAG:
+behave **/features/infoupdate.feature --tags=empty_fields
 
 Pentru generarea rapoartelor:
 Din TERMINAL:
@@ -20,6 +22,4 @@ behave **/features/infoupdate.feature -f behave_html_formatter:HTMLFormatter -o 
 
 
 '''
-
-
 

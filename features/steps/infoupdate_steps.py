@@ -45,3 +45,38 @@ def step_impl(context):
 @then('I shoud see my new data saved')
 def step_impl(context):
     context.infopage.verify_saved_data()
+
+@when('I enter a "{letters_or_simbols}" on "Telefon" field')
+def step_impl(context, letters_or_simbols):
+    context.infopage.enter_invalid_phone(letters_or_simbols)
+
+@then('The new phone number:"{letters_or_simbols}" should not be saved')
+def step_impl(context, letters_or_simbols):
+   context.infopage.verify_saved_phone(letters_or_simbols)
+
+@when('I select "Bucuresti" option from "Judet/Sector" hidden list')
+def step_impl(context):
+    context.infopage.select_bucuresti()
+
+@then('I should see Sector 1 to 6 on the "Oras" hidden list')
+def step_impl(context):
+    context.infopage.verify_if_sectors_appear_on_bucuresti()
+
+@when('I try to change the email address')
+def step_impl(context):
+    context.infopage.enter_email()
+
+@then('I should not to be able to change it')
+def step_impl(context):
+    pass
+
+@when('I let the "Prenume" field empty')
+def step_impl(context):
+    context.infopage.empty_firstname()
+@when('I let the "Nume" field empty')
+def step_impl(context):
+    context.infopage.empty_lastname()
+@then('I shoud see an error message')
+def step_impl(context):
+    assert context.infopage.ERROR_MESSAGE in context.infopage.verify_error_message(), 'Error message not found.'
+

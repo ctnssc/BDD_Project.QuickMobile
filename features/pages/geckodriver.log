@@ -71,3 +71,42 @@ DevTools listening on ws://127.0.0.1:54951/devtools/browser/3dae13ad-dd13-4b0e-b
 console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
 console.error: "Failed to fetch https://spocs.getpocket.com/user:" "NetworkError when attempting to fetch resource."
 !!! error running onStopped callback: TypeError: callback is not a function
+1698352031620	geckodriver	INFO	Listening on 127.0.0.1:57459
+1698352031628	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/49/2ztl2py11z92w20g23gvxdhc0000gn/T/rust_mozprofile1n5sAY"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+2023-10-26 23:27:11.905 firefox-bin[26786:1562877] WARNING: Secure coding is not enabled for restorable state! Enable secure coding by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState: and returning YES.
+1698352032108	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1698352032350	Marionette	INFO	Listening on port 57463
+Read port: 57463
+WebDriver BiDi listening on ws://127.0.0.1:57460
+1698352032615	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:57460/devtools/browser/1d5c7c9a-9343-47d1-bf5b-a13daf5ce234
+1698352040419	Marionette	INFO	Stopped listening on port 57463
+1698396859621	geckodriver	INFO	Listening on 127.0.0.1:59280
+1698396859649	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/49/2ztl2py11z92w20g23gvxdhc0000gn/T/rust_mozprofileRTcyjo"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+2023-10-27 11:54:19.959 firefox-bin[29524:1711142] WARNING: Secure coding is not enabled for restorable state! Enable secure coding by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState: and returning YES.
+1698396860180	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1698396860395	Marionette	INFO	Listening on port 59284
+WebDriver BiDi listening on ws://127.0.0.1:59281
+Read port: 59284
+1698396860626	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:59281/devtools/browser/ae64a084-1bd5-4102-8ff6-ea6c249ea7c3
+1698396870037	Marionette	INFO	Stopped listening on port 59284
+1698398380418	geckodriver	INFO	Listening on 127.0.0.1:60048
+1698398380426	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/49/2ztl2py11z92w20g23gvxdhc0000gn/T/rust_mozprofileuzOda6"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+2023-10-27 12:19:40.731 firefox-bin[30074:1729272] WARNING: Secure coding is not enabled for restorable state! Enable secure coding by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState: and returning YES.
+1698398380940	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1698398381211	Marionette	INFO	Listening on port 60052
+Read port: 60052
+WebDriver BiDi listening on ws://127.0.0.1:60049
+1698398381380	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:60049/devtools/browser/d7a6b61a-0163-44af-b86f-08966cb4cebe
+1698398386510	Marionette	INFO	Stopped listening on port 60052

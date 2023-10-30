@@ -10,7 +10,7 @@ class LoginPage(BasePage):
     HOMEPAGE_URL = 'https://www.quickmobile.ro/'
     VALID_EMAIL = 'ctnssc@gmail.com'
     INVALID_EMAIL = 'ctnss@gmail.com'
-    VALID_PASSWORD = 'ParoladeTest'
+    VALID_PASSWORD = 'ParoladeTest1'
     INVALID_PASSWORD = 'Parola123'
     VALID_LOGIN_URL = "https://www.quickmobile.ro/cont?loggedin=1"
     VALID_LOGIN_MESSAGE = "Bun venit, Cristian!"
