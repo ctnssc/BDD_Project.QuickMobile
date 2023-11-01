@@ -20,6 +20,10 @@ In cadrul acestui proiect am utilizat limbajul de programare Python, IDEul (Inte
 
 
 # Structura Proiect:
+
+Proiectul testeaza functionalitatile de login, logout si de modificare date personale din sectiunea “Contul meu” -> ”Informatii cont” pentru site-ul https://www.quickmobile.ro 
+
+
 In pregatirea proiectului am creat fisierul de ***requirements*** unde se regasesc numeroare librarii/pachete/pluginuri utile in crearea codului. Fisierele ***browser*** si ***environment*** au fost create pentru instantierea driverului browserului folosit in scopul testarii, respectiv definirea actiunilor ce vor fi facute inainte si dupa fiecare test executat.
 Urmatorul pas a fost crearea folderului ***features***, folder ce contine atat cele trei fisiere de tipul ***.feature*** (specific BDD) ce reprezinta functionalitatile testate in cadrul proiectului scrise sub forma de scenarii in limbajul Gherkin, ***login.feature , logout.feature, infoupdate.feature*** cat si doua folderele, ***pages*** unde am construit logica din spatele testelor si folderul ***steps*** unde am creat pasii pentru executarea testelor conform scenarilor scrise.
 
