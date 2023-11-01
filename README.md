@@ -1,4 +1,4 @@
-BDD Testing: QuickMobile.ro
+# BDD Testing: QuickMobile.ro
 ***Quickmobile.ro** este un site web ce comercializeaza (exclusiv prin magazinul online) atat in Romania cat si in Europa, produse electronice de la peste 150 de branduri de IT&C.*
 
 Testarea automata reprezinta o testare dinamica si analitica a unui produs software, care presupune utilizarea unui program pentru executarea procedurilor (test case) sau a întregilor scenarii de testare. Are scopul de a rula teste repetitive sau customizabile pentru o varietate mare de aplicatii cu o interventie umana minima. Avantajele unei astfel de testari sunt: eficienta, precizie, reutilizare si scalabilitate.
