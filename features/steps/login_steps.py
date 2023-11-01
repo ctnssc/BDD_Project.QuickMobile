@@ -41,6 +41,7 @@ def step_impl(context):
 def step_impl(context):
     assert context.loginpage.is_log_out_button_displayed(), "Logout button is not visible."
 
+
 @then('I should see an error message')
 def step_impl(context):
     assert context.loginpage.INVALID_LOGIN_MESSAGE in context.loginpage.get_err_message(), 'Error message not found.'

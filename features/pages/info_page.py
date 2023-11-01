@@ -10,6 +10,7 @@ from features.pages.base_page import BasePage
 class InfoPage(BasePage):
     #DATA
     INFO_PAGE_URL = 'https://www.quickmobile.ro/info'
+    CONT_URL = 'https://www.quickmobile.ro/cont'
     INFO_PAGE_MESSAGE = 'Modifica datele contului tau'
     FIRSTNAME = 'Cristian'
     LASTNAME = 'TANASESCU'
@@ -34,6 +35,8 @@ class InfoPage(BasePage):
     SELECTED_COUNTY_NAME = (By.XPATH, '//select[@id="county"]//option[@selected]')
     EMAIL_LABEL = (By.XPATH, '//input[@id="email"]')
     ERROR_MESSAGE_LABEL = (By.XPATH, "//div[@class='alert alert-with-icon alert-danger']")
+    LOGOUT_BUTTON_LABEL2 = (By.XPATH, "//a[@href='/?logout']")
+
     def click_info(self):
         self.click(self.INFO_PAGE_CLICK)
 
@@ -80,6 +83,7 @@ class InfoPage(BasePage):
     def enter_email(self):
         self.delete_text(self.EMAIL_LABEL)
         self.type(self.EMAIL_LABEL, 'TEST@TEST.TEST')
+        self.click_logout()
 
     def click_save(self):
         self.click(self.SAVE_BUTTON_LABEL)
@@ -97,31 +101,39 @@ class InfoPage(BasePage):
     def select_bucuresti(self):
         Select(self.find(self.COUNTY_LABEL)).select_by_visible_text("Bucuresti")
 
-    #Definim un dictionar ce oglindeste modul de initializare al sectoarelor in dropdown
-    #list-ul "Oras" din aplicatia testata atunci cand selectam "Bucuresti" in dropdown
-    # list-ul Judet/Sector.
 
-    sectors = {
-        "": "Alege orasul",
-        "Sector 1": "Sector 1",
-        "Sector 2": "Sector 2",
-        "Sector 3": "Sector 3",
-        "Sector 4": "Sector 4",
-        "Sector 5": "Sector 5",
-        "Sector 6": "Sector 6"
-    }
-    values = []
-
+    sectors = ['Alege orasul', 'Sector 1', 'Sector 2', 'Sector 3', 'Sector 4', 'Sector 5', 'Sector 6']
     def verify_if_sectors_appear_on_bucuresti(self):
+        values = []
         while self.find(self.SELECTED_COUNTY_NAME).text == "Bucuresti":
-            dropdown = Select(self.driver.find_element(By.XPATH, '//select[@id="city"]'))
-            for i in dropdown.options:
-                self.values.append(i)
-            assert self.sectors == self.values, f" {self.sectors} Nu e egal cu {self.values}"
+            dropdown = Select(self.driver.find_element(By.ID, "city"))
+            allitems = dropdown.options
+            for item in allitems:
+                values.append(item.text)
+            a=sorted(self.sectors)
+            b=sorted(values)
+
+            if a == b:
+                x=1
+            else:
+                x=2
+
+            #assert x == 1, f" {a} Nu e egal cu {b} si x={x} "
+            assert a == b, f" {a} Nu e egal cu {b} si {x}"
+
+
 
     def verify_saved_phone(self, letters_or_simbols):
         current_phone_number = self.find(self.PHONE_LABEL).text
+        self.click_logout()
         assert current_phone_number not in letters_or_simbols, f"Error, {letters_or_simbols} should not be saved as phone number {current_phone_number}."
+
+
+
 
     def verify_error_message(self):
         return self.get_text(self.ERROR_MESSAGE_LABEL)
+
+    def click_logout(self):
+        self.open_url(self.CONT_URL)
+        self.click(self.LOGOUT_BUTTON_LABEL2)
