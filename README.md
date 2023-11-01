@@ -1,4 +1,4 @@
-<img width="1818" alt="image" src="https://github.com/ctnssc/QuickMobile_BDD_TESTING/assets/127977552/e7d10046-3d3f-4f13-bbbe-6747de13558b"># BDD Testing: QuickMobile.ro
+BDD Testing: QuickMobile.ro
 ***Quickmobile.ro** este un site web ce comercializeaza (exclusiv prin magazinul online) atat in Romania cat si in Europa, produse electronice de la peste 150 de branduri de IT&C.*
 
 Testarea automata reprezinta o testare dinamica si analitica a unui produs software, care presupune utilizarea unui program pentru executarea procedurilor (test case) sau a întregilor scenarii de testare. Are scopul de a rula teste repetitive sau customizabile pentru o varietate mare de aplicatii cu o interventie umana minima. Avantajele unei astfel de testari sunt: eficienta, precizie, reutilizare si scalabilitate.
@@ -52,8 +52,7 @@ Verificarea ultimei functionalitati a presupus in prima instanta completarea/sup
  In acest sens am identificat si primul BUG. Campul cu numarul de telefon ar fi trebuit sa acceste doar cifre. 
 Totodata am identificat si un BUG vizual in formularul Date personale. In dreptul campului Judet, textul folosit este Judet/Sector, insa optiunea de sectoare (in momentul in care alegem optiunea Bucuresti) apare in campul imediat urmator Oras.
 
-BUG-urile gasite nu au insa un impact mare asupra utilizatorului, in momentul plasarii unei comezi 
-utilizatorul este obligat sa introduca un numar de telefon valid, iar BUG-ul vizual dispare si el.
+BUG-urile gasite nu au insa un impact mare asupra utilizatorului, in momentul plasarii unei comezi utilizatorul este obligat sa introduca un numar de telefon valid, iar BUG-ul vizual dispare si el.
 
 
 
