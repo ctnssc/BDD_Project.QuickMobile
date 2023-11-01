@@ -1,4 +1,4 @@
-# BDD Testing: QuickMobile.ro
+<img width="1818" alt="image" src="https://github.com/ctnssc/QuickMobile_BDD_TESTING/assets/127977552/e7d10046-3d3f-4f13-bbbe-6747de13558b"># BDD Testing: QuickMobile.ro
 ***Quickmobile.ro** este un site web ce comercializeaza (exclusiv prin magazinul online) atat in Romania cat si in Europa, produse electronice de la peste 150 de branduri de IT&C.*
 
 Testarea automata reprezinta o testare dinamica si analitica a unui produs software, care presupune utilizarea unui program pentru executarea procedurilor (test case) sau a întregilor scenarii de testare. Are scopul de a rula teste repetitive sau customizabile pentru o varietate mare de aplicatii cu o interventie umana minima. Avantajele unei astfel de testari sunt: eficienta, precizie, reutilizare si scalabilitate.
@@ -35,3 +35,26 @@ In folderul ***pages*** am creat fisierul ***base_page*** pentru a nu fi nevoiti
 In cadrul folderului ***steps*** am creat doua fisiere de tipul step definition file, ***infoupdate_steps*** si ***login_steps***, ce ajuta la implementarea tehnica  a scenariilor descrise in feature file. Cu ajutorul parametrului ***context*** putem accesa metode si instantia obiecte definite in folderul ***pages***.
 
 Dupa executarea cu succes a tuturor testelor am generat cate un raport pentru fiecare feature in parte: ***infoupdate.report.html, login.report.html, logout.report.html***. Modul de generare al acestora se face in terminal cu ajutorul comenzii: ***behave **/features/login.feature -f behave_html_formatter:HTMLFormatter -o login.report.html*** si poate fi accesat din browser datorita parametrului ***"-o"***.
+
+
+# Concluzii. Rezultate.
+
+
+Concluzionand, procesul de testare a constat in testarea a 3 functionalitati: login, logout si infoupdate.
+Pentru functionalitatea de login am creat si executat 4 teste, prin care am verificat in prima instanta logarea cu credentiale valide, iar mai apoi cu credeantiale invalide.
+Pentru functionalitatea de logout am creat si executat un singur test prin care am verificat ca dupa ce ne-am logat cu succes pe site, butonul de logout apare si functioneaza. 
+Toate testele mentionate mai sus au functionat si au statusul PASSED.
+Verificarea ultimei functionalitati a presupus in prima instanta completarea/suprascrierea informatiilor personale din formularul Date personale, sectiunea Contul meu. Testul creat in acest scop a fost PASSED. Ulterior am testat 4 particularitati ale acestui formular:
+- Am verificat ca in momentul in care alegem optiunea Bucuresti din lista de Judete, in seciunea Oras vor aparea variantele Sector. Test PASSED. 
+- Am verificat daca putem modifica adresa de e-mail de pe care a fost creat contul, aceasta optiune fiind blocata cu optiunea read-only. Testul va fi FAILED, insa rezultatul este unul pozitiv. In momentul incercarii suprascrierii adresei de e-mail programul va da o eroare specifincandu-se optiunea read-only a campului.
+- Am verificat ca nu putem lasa goale campurile de Prenume si Nume si vom primi un mesaj de eroare in acest sens. Test PASSED.
+- Am verificat daca putem folosi doar cifre si nu litere sau simboluri in capul dedicat numarului de telefon.  Test FAILED.
+ In acest sens am identificat si primul BUG. Campul cu numarul de telefon ar fi trebuit sa acceste doar cifre. 
+Totodata am identificat si un BUG vizual in formularul Date personale. In dreptul campului Judet, textul folosit este Judet/Sector, insa optiunea de sectoare (in momentul in care alegem optiunea Bucuresti) apare in campul imediat urmator Oras.
+
+BUG-urile gasite nu au insa un impact mare asupra utilizatorului, in momentul plasarii unei comezi 
+utilizatorul este obligat sa introduca un numar de telefon valid, iar BUG-ul vizual dispare si el.
+
+
+
+
