@@ -46,7 +46,7 @@ Pentru functionalitatea de logout am creat si executat un singur test prin care 
 Toate testele mentionate mai sus au functionat si au statusul PASSED.
 Verificarea ultimei functionalitati a presupus in prima instanta completarea/suprascrierea informatiilor personale din formularul Date personale, sectiunea Contul meu. Testul creat in acest scop a fost PASSED. Ulterior am testat 4 particularitati ale acestui formular:
 - Am verificat ca in momentul in care alegem optiunea Bucuresti din lista de Judete, in seciunea Oras vor aparea variantele Sector. Test PASSED. 
-- Am verificat daca putem modifica adresa de e-mail de pe care a fost creat contul, aceasta optiune fiind blocata cu optiunea read-only. Testul va fi FAILED, insa rezultatul este unul pozitiv. In momentul incercarii suprascrierii adresei de e-mail programul va da o eroare specifincandu-se optiunea read-only a campului.
+- Am verificat  ca nu putem modifica adresa de e-mail de pe care a fost creat contul, aceasta optiune fiind blocata cu optiunea read-only. Test PASSED.
 - Am verificat ca nu putem lasa goale campurile de Prenume si Nume si vom primi un mesaj de eroare in acest sens. Test PASSED.
 - Am verificat daca putem folosi doar cifre si nu litere sau simboluri in capul dedicat numarului de telefon.  Test FAILED.
  In acest sens am identificat si primul BUG. Campul cu numarul de telefon ar fi trebuit sa acceste doar cifre. 
