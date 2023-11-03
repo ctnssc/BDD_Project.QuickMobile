@@ -20,13 +20,40 @@ In cadrul acestui proiect am utilizat limbajul de programare Python, IDEul (Inte
 
 
 # Structura Proiect:
+
+Proiectul testeaza functionalitatile de login, logout si de modificare date personale din sectiunea “Contul meu” -> ”Informatii cont” pentru site-ul https://www.quickmobile.ro 
+
+
 In pregatirea proiectului am creat fisierul de ***requirements*** unde se regasesc numeroare librarii/pachete/pluginuri utile in crearea codului. Fisierele ***browser*** si ***environment*** au fost create pentru instantierea driverului browserului folosit in scopul testarii, respectiv definirea actiunilor ce vor fi facute inainte si dupa fiecare test executat.
 Urmatorul pas a fost crearea folderului ***features***, folder ce contine atat cele trei fisiere de tipul ***.feature*** (specific BDD) ce reprezinta functionalitatile testate in cadrul proiectului scrise sub forma de scenarii in limbajul Gherkin, ***login.feature , logout.feature, infoupdate.feature*** cat si doua folderele, ***pages*** unde am construit logica din spatele testelor si folderul ***steps*** unde am creat pasii pentru executarea testelor conform scenarilor scrise.
 
-Au fost definite 3 fisiere de tipul feature, ***infoupdate.featrure, login.feature, logout.feature*** fisiere in care se regasesc featurile tesate (login - 4 teste, logout -1 test si infoupdate - 1 test) si scenarii corespunzatoare testelor. Avand in vedere ca in cazul testarii feature-ului de login avem mai multe teste, am folosit tag-uri pentru fiecare test in parte pentru a avea posibilitatea de a rula un singur test. (***@invalid_credentials, @invalid_email, @invalid_password, @valid_credentials***).
+Au fost definite 3 fisiere de tipul feature, infoupdate.featrure, login.feature, logout.feature fisiere in care se regasesc featurile tesate (login - 4 teste, logout -1 test si infoupdate - 5 teste) si scenarii corespunzatoare testelor. Avand in vedere ca in cazul testarii feature-ului de login avem mai multe teste, am folosit tag-uri pentru fiecare test in parte pentru a avea posibilitatea de a rula un singur test. (@invalid_credentials, @invalid_email, @invalid_password, @valid_credentials). Similar am procedat si cu fisierul infoupdate:@full_update, @invalid_phone_number, @sectors, @empty_fields, @change_email. Pentru testarea numarului de telefon, am implementat un scenariu de tipul Scenario Outiline pentru a putea verifica mai multe tipuri de numere de telefon invalide. (litere si simboluri)
+
 
 In folderul ***pages*** am creat fisierul ***base_page*** pentru a nu fi nevoiti sa rescriem aceleasi functii/linii de cod in mai multe locuri astfel aparand cod redundant in aplicatie, si am definit toate actiunile de care avem nevoie in procesul de testare. In ***login_page*** si ***info_page*** am definit toate datele, caile si actiunile ce sunt necesare pentru a putea defini pasii de testare pentru login/logout, respectiv pentru actualizarea informatiilor personale din cadrul sectiunii contul meu, infromatii cont. Ambele fisiere mostenesc clasa ***BasePage*** ( creata in fisierul ***base_page*** ) iar prin intermediul parametrului ***self*** putem apela metodele deja definite. Pentru a respecta in tocmai principiile design patternului POM am ales sa integrez datele si pathurile obiectelor testate in fisierele in care se regaseau, chiar daca din punct de vedere al claritatii codului ar fi fost mai potrivita definirea acestora intr-un fisier separat cu clasele aferente.
 
 In cadrul folderului ***steps*** am creat doua fisiere de tipul step definition file, ***infoupdate_steps*** si ***login_steps***, ce ajuta la implementarea tehnica  a scenariilor descrise in feature file. Cu ajutorul parametrului ***context*** putem accesa metode si instantia obiecte definite in folderul ***pages***.
 
 Dupa executarea cu succes a tuturor testelor am generat cate un raport pentru fiecare feature in parte: ***infoupdate.report.html, login.report.html, logout.report.html***. Modul de generare al acestora se face in terminal cu ajutorul comenzii: ***behave **/features/login.feature -f behave_html_formatter:HTMLFormatter -o login.report.html*** si poate fi accesat din browser datorita parametrului ***"-o"***.
+
+
+# Concluzii. Rezultate.
+
+
+Concluzionand, procesul de testare a constat in testarea a 3 functionalitati: login, logout si infoupdate.
+Pentru functionalitatea de login am creat si executat 4 teste, prin care am verificat in prima instanta logarea cu credentiale valide, iar mai apoi cu credeantiale invalide.
+Pentru functionalitatea de logout am creat si executat un singur test prin care am verificat ca dupa ce ne-am logat cu succes pe site, butonul de logout apare si functioneaza. 
+Toate testele mentionate mai sus au functionat si au statusul PASSED.
+Verificarea ultimei functionalitati a presupus in prima instanta completarea/suprascrierea informatiilor personale din formularul Date personale, sectiunea Contul meu. Testul creat in acest scop a fost PASSED. Ulterior am testat 4 particularitati ale acestui formular:
+- Am verificat ca in momentul in care alegem optiunea Bucuresti din lista de Judete, in seciunea Oras vor aparea variantele Sector. Test PASSED. 
+- Am verificat daca putem modifica adresa de e-mail de pe care a fost creat contul, aceasta optiune fiind blocata cu optiunea read-only. Testul va fi FAILED, insa rezultatul este unul pozitiv. In momentul incercarii suprascrierii adresei de e-mail programul va da o eroare specifincandu-se optiunea read-only a campului.
+- Am verificat ca nu putem lasa goale campurile de Prenume si Nume si vom primi un mesaj de eroare in acest sens. Test PASSED.
+- Am verificat daca putem folosi doar cifre si nu litere sau simboluri in capul dedicat numarului de telefon.  Test FAILED.
+ In acest sens am identificat si primul BUG. Campul cu numarul de telefon ar fi trebuit sa acceste doar cifre. 
+Totodata am identificat si un BUG vizual in formularul Date personale. In dreptul campului Judet, textul folosit este Judet/Sector, insa optiunea de sectoare (in momentul in care alegem optiunea Bucuresti) apare in campul imediat urmator Oras.
+
+BUG-urile gasite nu au insa un impact mare asupra utilizatorului, in momentul plasarii unei comezi utilizatorul este obligat sa introduca un numar de telefon valid, iar BUG-ul vizual dispare si el.
+
+
+
+
