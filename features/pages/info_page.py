@@ -118,8 +118,10 @@ class InfoPage(BasePage):
             else:
                 x=2
 
+
             #assert x == 1, f" {a} Nu e egal cu {b} si x={x} "
             assert a == b, f" {a} Nu e egal cu {b} si {x}"
+
 
 
 
