@@ -1,59 +1,43 @@
 # BDD Testing: QuickMobile.ro
-***Quickmobile.ro** este un site web ce comercializeaza (exclusiv prin magazinul online) atat in Romania cat si in Europa, produse electronice de la peste 150 de branduri de IT&C.*
+***Quickmobile.ro** is a website that exclusively sells electronic products from over 150 IT&C brands, both in Romania and across Europe through its online store.*
 
-Testarea automata reprezinta o testare dinamica si analitica a unui produs software, care presupune utilizarea unui program pentru executarea procedurilor (test case) sau a întregilor scenarii de testare. Are scopul de a rula teste repetitive sau customizabile pentru o varietate mare de aplicatii cu o interventie umana minima. Avantajele unei astfel de testari sunt: eficienta, precizie, reutilizare si scalabilitate.
+Automated testing represents a dynamic and analytical testing of software products, involving the use of a program to execute test procedures (test cases) or complete test scenarios. Its purpose is to run repetitive or customizable tests for a wide variety of applications with minimal human intervention. The advantages of such testing include efficiency, precision, reusability, and scalability.
 
-In cadrul acestui proiect am utilizat limbajul de programare Python, IDEul (Integrated Development Environment) folosit este PyCharm iar librariile folosite sunt Selenium si Behave. 
+In this project, the Python programming language was used, with the PyCharm Integrated Development Environment (IDE), along with the Selenium and Behave libraries.
 
-  PyCharm este un IDE dezvoltat de JetBrains, compania din spatele IntelliJ IDEA cu scopul de a oferi un IDE simplu, dar puternic, care ar face codarea mult mai ușoară pentru dezvoltatorii ce folosesc ca limbaj de programare Python.
+PyCharm is an IDE developed by JetBrains, the company behind IntelliJ IDEA, to provide a simple yet powerful IDE to make coding easier for developers using Python as their programming language.
+
+Python is a dynamic, high-level programming language emphasizing code expressiveness and ease of understanding. The language supports multiple programming paradigms, especially imperative (C) and object-oriented (Java) paradigms.
+
+The Selenium library is an open-source suite of tools and libraries used for browser automation. Selenium allows users to test the functionality of websites on various browsers.
+
+The methodology used in this project is Behavior-Driven Development (BDD), which is why the Behave library was utilized. BDD is a software development process derived from Test-Driven Development (TDD) with a greater focus on testing scenarios. BDD activities are similar to TDD, but they have the advantage of adding business scenario descriptions in a language understandable to non-technical users. These descriptions are called feature files and are the first files created in the BDD process, with everything else created to validate the tests described in these feature files.
+
+Gherkin is a descriptive language used in the BDD process to implement business scenarios in a natural language, written in simple English so all involved individuals can understand it.
+
+The design pattern used is the Page Object Model (POM), a design used by the BDD methodology. This design was implemented to group all elements on a web page into a single Python file, so each web page corresponds to a single Python file containing all the elements on that web page and the actions that can be performed on it.
+
+# Project Structure.
+
+The project tests the functionalities of login, logout, and personal data modification in the "My Account" -> "Account Information" section of the website https://www.quickmobile.ro.
+
+In the project preparation, a requirements file was created, containing various libraries/packages/plugins useful for code development. The browser and environment files were created for browser driver instantiation for testing purposes and defining actions to be taken before and after each test. The next step was creating the "features" folder, which contains three feature files (specific to BDD) representing the tested functionalities written as scenarios in the Gherkin language: login.feature, logout.feature, and infoupdate.feature. Additionally, two folders, "pages" and "steps," were created. "pages" contains the logic behind the tests, and "steps" contains the steps for executing tests according to the written scenarios.
+
+Three feature files were defined: infoupdate.feature, login.feature, logout.feature, with the corresponding tested features and scenarios. Tags were used for individual tests in the case of login.feature, allowing for the execution of a single test (@invalid_credentials, @invalid_email, @invalid_password, @valid_credentials). The same approach was taken with infoupdate.feature: @full_update, @invalid_phone_number, @sectors, @empty_fields, @change_email. To test phone numbers, a Scenario Outline was implemented to verify multiple types of invalid phone numbers (letters and symbols).
+
+In the "pages" folder, the base_page file was created to avoid rewriting the same functions/code lines in multiple places, reducing redundant code. All the necessary actions for testing were defined in login_page and info_page, including data, paths, and actions needed to define the test steps for login/logout and updating personal information in the "My Account," "Account Information" section. Both files inherit the BasePage class (created in the base_page file), allowing methods to be called using the "self" parameter. To adhere to the POM design principles, the data, and paths of the tested objects were integrated into the corresponding files, even though it would have been more suitable to define them in a separate file with the relevant classes for code clarity.
+
+In the "steps" folder, two-step definition files were created: infoupdate_steps and login_steps, aiding in the technical implementation of the scenarios described in the feature files. The "context" parameter allows for accessing methods and instantiating objects defined in the "pages" folder.
+
+After the successful execution of all tests, a report was generated for each feature: infoupdate.report.html, login.report.html, and logout.report.html. These reports were generated in the terminal using the "behave" command and can be accessed through a browser thanks to the "-o" parameter.
+
+  # Conclusions. Results.
   
-  Python este un limbaj de programare dinamic, de nivel înalt, ce pune accent pe expresivitatea și înțelegerea ușoară a codului. Limbajul facilitează mai multe paradigme de programare, în special paradigma imperativa (C) și pe cea orientată pe obiecte (Java). 
-  
-  Libraria Selenium este o suita de tooluri si librarii open-source folosita pentru browser atuomation. Selenium permite userilor sa testeze functionalitatile siteurilor web pe diverse browsere.
-  
-  Metodologia folosita in acest proiect este BDD (Behavior-Driven Development), motiv pentru care am utilizat libraria Behave. BDD este un proces de dezvoltare software derivata din TDD care se bazeaza pe o atentie mai mare asupra scenariilor de testare.  Desi activitatile din suita BDD sunt similare cu cele din suita TDD, ele au un avantaj prin faptul ca adauga peste codul de testare automata fisierele descriptive ale scenariilor de business care sunt scrise intr-un limbaj pe care sa il inteleaga si utilizatorii ce nu au cunostinte tehnice. Acestea se numesc feature files si sunt primele fisiere care se creeaza in procesul de BDD, iar tot ce va fi creat ulterior va fi pentru a valida testele descrise in acest feature file.
-  
-  Gherkin este un limbaj descriptiv folosit in procesul de BDD pentru a putea implementa scenariile de business intr-un limbaj natural, scris intr-o engleza simpla astfel incat sa poata sa fie inteles de catre toate persoanele implicate. 
-  
-  Design patternul folosit este POM (Page Object Model), design folosit in general de metodologia BDD. Acesta a fost implementat pentru gruparea tuturor elementelor dintr-o pagina web intr-un singur fisiser python, astfel fiecare pagina web va avea ca si corespondent un singur fisier de python care va contine toate elementele dintr-o pagina web si respectiv toate actunile care se pot face pe acea pagina web.
+In conclusion, the testing process involved the testing of three functionalities: login, logout, and infoupdate. For the login functionality, four tests were created and executed, initially verifying login with valid credentials, followed by login with invalid credentials. The logout functionality was tested with a single test, verifying that the logout button appears and works after a successful login. All the mentioned tests passed successfully. The final functionality test involved updating personal information in the "My Account," "Account Information" section. The test created for this purpose passed successfully. Four additional aspects of this form were tested:
 
+- Verifying that selecting "Bucharest" from the list of counties results in the display of sector options in the "City" section. Test passed.
+- Verifying that the email address used to create the account cannot be modified, as it is set as read-only. Test passed.
+- Verifying that leaving the "First Name" and "Last Name" fields empty results in an error message. Test passed.
+- Testing whether only digits and not letters or symbols can be used in the phone number field. The test failed, and the first bug was identified. The phone number field should only accept digits. Additionally, a visual bug was identified in the "Account Information" form. In the "County" field, the text used is "County/Sector," but the sector option (when choosing "Bucharest") appears in the immediately following "City" field.
 
-
-# Structura Proiect:
-
-Proiectul testeaza functionalitatile de login, logout si de modificare date personale din sectiunea “Contul meu” -> ”Informatii cont” pentru site-ul https://www.quickmobile.ro 
-
-
-In pregatirea proiectului am creat fisierul de ***requirements*** unde se regasesc numeroare librarii/pachete/pluginuri utile in crearea codului. Fisierele ***browser*** si ***environment*** au fost create pentru instantierea driverului browserului folosit in scopul testarii, respectiv definirea actiunilor ce vor fi facute inainte si dupa fiecare test executat.
-Urmatorul pas a fost crearea folderului ***features***, folder ce contine atat cele trei fisiere de tipul ***.feature*** (specific BDD) ce reprezinta functionalitatile testate in cadrul proiectului scrise sub forma de scenarii in limbajul Gherkin, ***login.feature , logout.feature, infoupdate.feature*** cat si doua folderele, ***pages*** unde am construit logica din spatele testelor si folderul ***steps*** unde am creat pasii pentru executarea testelor conform scenarilor scrise.
-
-Au fost definite 3 fisiere de tipul feature, infoupdate.featrure, login.feature, logout.feature fisiere in care se regasesc featurile tesate (login - 4 teste, logout -1 test si infoupdate - 5 teste) si scenarii corespunzatoare testelor. Avand in vedere ca in cazul testarii feature-ului de login avem mai multe teste, am folosit tag-uri pentru fiecare test in parte pentru a avea posibilitatea de a rula un singur test. (@invalid_credentials, @invalid_email, @invalid_password, @valid_credentials). Similar am procedat si cu fisierul infoupdate:@full_update, @invalid_phone_number, @sectors, @empty_fields, @change_email. Pentru testarea numarului de telefon, am implementat un scenariu de tipul Scenario Outiline pentru a putea verifica mai multe tipuri de numere de telefon invalide. (litere si simboluri)
-
-
-In folderul ***pages*** am creat fisierul ***base_page*** pentru a nu fi nevoiti sa rescriem aceleasi functii/linii de cod in mai multe locuri astfel aparand cod redundant in aplicatie, si am definit toate actiunile de care avem nevoie in procesul de testare. In ***login_page*** si ***info_page*** am definit toate datele, caile si actiunile ce sunt necesare pentru a putea defini pasii de testare pentru login/logout, respectiv pentru actualizarea informatiilor personale din cadrul sectiunii contul meu, infromatii cont. Ambele fisiere mostenesc clasa ***BasePage*** ( creata in fisierul ***base_page*** ) iar prin intermediul parametrului ***self*** putem apela metodele deja definite. Pentru a respecta in tocmai principiile design patternului POM am ales sa integrez datele si pathurile obiectelor testate in fisierele in care se regaseau, chiar daca din punct de vedere al claritatii codului ar fi fost mai potrivita definirea acestora intr-un fisier separat cu clasele aferente.
-
-In cadrul folderului ***steps*** am creat doua fisiere de tipul step definition file, ***infoupdate_steps*** si ***login_steps***, ce ajuta la implementarea tehnica  a scenariilor descrise in feature file. Cu ajutorul parametrului ***context*** putem accesa metode si instantia obiecte definite in folderul ***pages***.
-
-Dupa executarea cu succes a tuturor testelor am generat cate un raport pentru fiecare feature in parte: ***infoupdate.report.html, login.report.html, logout.report.html***. Modul de generare al acestora se face in terminal cu ajutorul comenzii: ***behave **/features/login.feature -f behave_html_formatter:HTMLFormatter -o login.report.html*** si poate fi accesat din browser datorita parametrului ***"-o"***.
-
-
-# Concluzii. Rezultate.
-
-
-Concluzionand, procesul de testare a constat in testarea a 3 functionalitati: login, logout si infoupdate.
-Pentru functionalitatea de login am creat si executat 4 teste, prin care am verificat in prima instanta logarea cu credentiale valide, iar mai apoi cu credeantiale invalide.
-Pentru functionalitatea de logout am creat si executat un singur test prin care am verificat ca dupa ce ne-am logat cu succes pe site, butonul de logout apare si functioneaza. 
-Toate testele mentionate mai sus au functionat si au statusul PASSED.
-Verificarea ultimei functionalitati a presupus in prima instanta completarea/suprascrierea informatiilor personale din formularul Date personale, sectiunea Contul meu. Testul creat in acest scop a fost PASSED. Ulterior am testat 4 particularitati ale acestui formular:
-- Am verificat ca in momentul in care alegem optiunea Bucuresti din lista de Judete, in seciunea Oras vor aparea variantele Sector. Test PASSED. 
-- Am verificat daca putem modifica adresa de e-mail de pe care a fost creat contul, aceasta optiune fiind blocata cu optiunea read-only. Testul va fi FAILED, insa rezultatul este unul pozitiv. In momentul incercarii suprascrierii adresei de e-mail programul va da o eroare specifincandu-se optiunea read-only a campului.
-- Am verificat ca nu putem lasa goale campurile de Prenume si Nume si vom primi un mesaj de eroare in acest sens. Test PASSED.
-- Am verificat daca putem folosi doar cifre si nu litere sau simboluri in capul dedicat numarului de telefon.  Test FAILED.
- In acest sens am identificat si primul BUG. Campul cu numarul de telefon ar fi trebuit sa acceste doar cifre. 
-Totodata am identificat si un BUG vizual in formularul Date personale. In dreptul campului Judet, textul folosit este Judet/Sector, insa optiunea de sectoare (in momentul in care alegem optiunea Bucuresti) apare in campul imediat urmator Oras.
-
-BUG-urile gasite nu au insa un impact mare asupra utilizatorului, in momentul plasarii unei comezi utilizatorul este obligat sa introduca un numar de telefon valid, iar BUG-ul vizual dispare si el.
-
-
-
-
+The identified bugs do not have a significant impact on users. During the order placement, users are required to enter a valid phone number, and the visual bug disappears.
