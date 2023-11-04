@@ -80,10 +80,11 @@ class InfoPage(BasePage):
         self.delete_text(self.ADDRESS_LABEL)
         self.type(self.ADDRESS_LABEL, self.ADDRESS)
 
-    def enter_email(self):
-        self.delete_text(self.EMAIL_LABEL)
-        self.type(self.EMAIL_LABEL, 'TEST@TEST.TEST')
-        self.click_logout()
+    def readonly_email(self):
+        check = self.find(self.EMAIL_LABEL).get_attribute("readonly")
+        assert check, "Error email field should be readonly."
+
+
 
     def click_save(self):
         self.click(self.SAVE_BUTTON_LABEL)
@@ -110,17 +111,18 @@ class InfoPage(BasePage):
             allitems = dropdown.options
             for item in allitems:
                 values.append(item.text)
-            a=sorted(self.sectors)
-            b=sorted(values)
+            a = sorted(self.sectors)
+            b = sorted(values)
 
-            if a == b:
-                x=1
-            else:
-                x=2
+            if len(a) != len(b):
+                return False
 
+            verifier = True
+            for i in range(len(a)):
+                if a[i] != b[i]:
+                    verifier = False
+            assert verifier, f" {a} Nu e egal cu {b}"
 
-            #assert x == 1, f" {a} Nu e egal cu {b} si x={x} "
-            assert a == b, f" {a} Nu e egal cu {b} si {x}"
 
 
 

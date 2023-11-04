@@ -60,21 +60,6 @@ Feature: infoupdate
       | aA#$%^!            |
 
 
-
-  @change_email
-  Scenario: verify if i could change email address
-    Given I am on the login page
-    When I enter a valid email
-    And I enter a valid password
-    And I press login button "Autentificare"
-    Then I should be on the user home page
-    And I should see the logout button "Delogare Cristian"
-    When I press info button "Informatii cont"
-    Then I should be on the info page
-    When I try to change the email address
-    Then I should not to be able to change it
-    Then I Logout
-
   @sectors
   Scenario: verify if sectors appear on city list when value "Bucuresti" is
   selected on  county list
@@ -91,7 +76,7 @@ Feature: infoupdate
     Then I Logout
 
   @change_email
-  Scenario: verify if i could change email address
+  Scenario: verify that i could not change email address
     Given I am on the login page
     When I enter a valid email
     And I enter a valid password

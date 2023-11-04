@@ -69,7 +69,7 @@ def step_impl(context):
 
 @when('I try to change the email address')
 def step_impl(context):
-    context.infopage.enter_email()
+    context.infopage.readonly_email()
 
 
 @then('I should not to be able to change it')
